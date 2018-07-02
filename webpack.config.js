@@ -4,12 +4,12 @@ module.exports = {
     path: __dirname,
     publicPath: '/',
     filename: 'bundle.js'
-  },
+  },watch: true,
   module: {
     loaders: [
       {
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-1']
         }
@@ -17,14 +17,9 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx']
   },
   devServer: {
-    historyApiFallback: true,
     contentBase: './',
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000
-    }
-  }
-};
+
+  }};
